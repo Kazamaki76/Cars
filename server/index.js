@@ -10,6 +10,31 @@ app.get("/", (request, res) => {
     return res.status(234).send("Hello World");
 })
 
+app.get("/cars", async (request, response) => {
+    try{
+        const cars = await Car.find({});
+        return response.status(200).json(
+            {
+                count : cars.length,
+                data: cars
+            });
+    }catch(err){
+        console.log(err.message);
+        response.status(500).send({ message : err.message});
+    }
+})
+
+app.get("/cars/:id", async (request, response) => {
+    try{
+        const {id}= request.params;
+        const cars = await Car.findById(id);
+        return response.status(200).json(cars);
+    }catch(err){
+        console.log(err.message);
+        response.status(500).send({ message : err.message});
+    }
+})
+
 app.post("/cars", async (request, response) => {
     try{
         if(
@@ -33,6 +58,43 @@ app.post("/cars", async (request, response) => {
         return response.status(201).send(car);
     }catch(err){
         console.log(err);}
+})
+
+app.put("/cars/:id", async (request, response) => {
+    try{
+        if(
+            !request.body.licensePlate||
+            !request.body.brand||
+            !request.body.model||
+            !request.body.remarks||
+            !request.body.etc
+        ){
+            return response.status(400).send({ message: `All fields are required`});
+        }
+        const {id}= request.params;
+        const result = await Car.findByIdAndUpdate(id, request.body);
+        if(!result){
+            return response.status(404).send({ message: `Car not found`});
+        }
+        return response.status(200).send({ message: `Car updated successfully`});
+    }catch(err){
+        console.log(err.message);
+        response.status(500).send({ message : err.message});
+    }
+})
+
+app.delete("/cars/:id", async (request, response) => {
+    try{
+        const {id}= request.params;
+        const result = await Car.findByIdAndDelete(id);
+        if(!result){
+            return response.status(404).send({ message: `Car not found`});
+        }
+        return response.status(200).send({ message: `Car deleted successfully`});
+    }catch(err){
+        console.log(err.message);
+        response.status(500).send({ message : err.message});
+    }
 })
 
 app.listen(PORT, () => {

@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const carSchema =  mongoose.Schema(
-    {
+    {   
         licensePlate :{
             type : String,
             required:true,
