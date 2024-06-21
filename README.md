@@ -1,15 +1,13 @@
 
 # Cars
 
-A comprehensive solution for managing and tracking car data. This project aims to provide a robust and easy-to-use system for car enthusiasts and professionals alike.
+A comprehensive solution for managing and tracking car data
 
 ## Table of Contents
 
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Configuration](#configuration)
-- [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 
@@ -31,12 +29,10 @@ To get started with this project, follow these steps:
 2. **Install dependencies:**
 
    npm install
-   \`\`\`
+   
 3. **Start the application:**
   
-   npm run dev start on both front and clinet 
-
-## Usage
+   npm run dev start on both front and client
 
 ### Running the Application
 
