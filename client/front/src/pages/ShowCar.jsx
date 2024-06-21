@@ -1,7 +1,8 @@
-import React from 'react'
 
-export const ShowCar = () => {
+
+ const ShowCar = () => {
   return (
     <div>ShowCar</div>
   )
 }
+export default ShowCar

@@ -1,7 +1,9 @@
-import React from 'react'
 
-export const DeleteCar = () => {
+
+ const DeleteCar = () => {
   return (
     <div>DeleteCar</div>
   )
 }
+
+export default DeleteCar

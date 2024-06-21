@@ -1,7 +1,8 @@
-import React from 'react'
 
-export const EditCar = () => {
+
+ const EditCar = () => {
   return (
     <div>EditCar</div>
   )
 }
+export default EditCar

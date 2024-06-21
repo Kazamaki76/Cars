@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import axios from 'axios';
 import Spinner from '../components/Spinner';
 import { Link } from 'react-router-dom';
@@ -37,14 +37,16 @@ const Home = () => {
           <thead>
             <tr>
               <th className='border border-slate-600 rounded-md'>No</th>
-              <th className='border border-slate-600 rounded-md'>Title</th>
+              <th className='border border-slate-600 rounded-md'>licensePlate</th>
               <th className='border border-slate-600 rounded-md max-md:hidden'>
-                Author
+              brand
               </th>
               <th className='border border-slate-600 rounded-md max-md:hidden'>
-                Publish Year
+              model
               </th>
-              <th className='border border-slate-600 rounded-md'>Operations</th>
+              <th className='border border-slate-600 rounded-md'>remarks</th>
+              <th className='border border-slate-600 rounded-md'>etc</th>
+              <th className='border border-slate-600 rounded-md'>EDIT</th>
             </tr>
           </thead>
           <tbody>
@@ -54,13 +56,19 @@ const Home = () => {
                   {index + 1}
                 </td>
                 <td className='border border-slate-700 rounded-md text-center'>
-                  {car.title}
+                  {car.licensePlate}
                 </td>
                 <td className='border border-slate-700 rounded-md text-center max-md:hidden'>
-                  {car.author}
+                  {car.brand}
                 </td>
                 <td className='border border-slate-700 rounded-md text-center max-md:hidden'>
-                  {car.publishYear}
+                  {car.model}
+                </td>
+                <td className='border border-slate-700 rounded-md text-center max-md:hidden'>
+                  {car.remarks}
+                </td>
+                <td className='border border-slate-700 rounded-md text-center max-md:hidden'>
+                  {car.etc}
                 </td>
                 <td className='border border-slate-700 rounded-md text-center'>
                   <div className='flex justify-center gap-x-4'>
