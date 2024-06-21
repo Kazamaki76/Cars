@@ -1,8 +1,13 @@
 import express from "express";
-import { PORT ,mongoURL} from "./config.js";
-import mongoose from "mongoose";
+import mongoose, { connect } from "mongoose";
 import carsRoutes from "./routes/carsRoutes.js";
 import cors from "cors";
+import { configDotenv } from "dotenv";
+
+configDotenv();
+const PORT = process.env.PORT || 5555;
+const mongoURL = process.env.MONGO_URL;
+console.log( PORT, mongoURL);
 
 const app = express();
 app.use (express.json());
@@ -17,7 +22,7 @@ app.get("/", (request, res) => {
 app.use("/cars",carsRoutes)
 
 mongoose
-    .connect(mongoURL)
+.connect(mongoURL)
     .then(() => {
         console.log("Database Connected");
         app.listen(PORT, () => {
