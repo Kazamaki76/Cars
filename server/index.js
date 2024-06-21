@@ -2,9 +2,13 @@ import express from "express";
 import { PORT ,mongoURL} from "./config.js";
 import mongoose from "mongoose";
 import carsRoutes from "./routes/carsRoutes.js";
+import cors from "cors";
 
 const app = express();
 app.use (express.json());
+
+app.use(cors())
+
 app.get("/", (request, res) => {
     console.log(request);
     return res.status(234).send("Hello World");

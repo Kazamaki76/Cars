@@ -3,13 +3,13 @@ import './App.css'
 import axios from 'axios'
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   useEffect(() => {
-    axios.get('/api').then((res) => {
-      console.log(res.data)
-    })
-  })
+    axios.get('http://localhost:5555/cars').then(
+      res => console.log(res)
+    )
+  }, [])
   return (
     <>
       <h1>Hello</h1>
